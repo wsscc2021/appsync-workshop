@@ -1,0 +1,20 @@
+{
+  "version": "16.0.0",
+  "files": {
+    "642a53a96a2f9706baa81613dcc15d4735363c5cf3e11adc5082af7229712880": {
+      "source": {
+        "path": "appsync-workshop.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "242593025403-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-242593025403-us-east-1",
+          "objectKey": "642a53a96a2f9706baa81613dcc15d4735363c5cf3e11adc5082af7229712880.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::242593025403:role/cdk-hnb659fds-file-publishing-role-242593025403-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

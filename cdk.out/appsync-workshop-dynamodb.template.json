@@ -1,0 +1,89 @@
+{
+  "Resources": {
+    "dynamodbcomment891AC376": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "KeySchema": [
+          {
+            "AttributeName": "postId",
+            "KeyType": "HASH"
+          },
+          {
+            "AttributeName": "commentId",
+            "KeyType": "RANGE"
+          }
+        ],
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "postId",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "commentId",
+            "AttributeType": "S"
+          }
+        ],
+        "PointInTimeRecoverySpecification": {
+          "PointInTimeRecoveryEnabled": true
+        },
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5
+        },
+        "SSESpecification": {
+          "SSEEnabled": true
+        },
+        "TableClass": "STANDARD",
+        "TableName": "comment"
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "appsync-workshop-dynamodb/dynamodb-comment/Resource"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/zPSMzTSM1BMLC/WTU7J1s3JTNKrDi5JTM7WAQrFp1TmJebmpwDFQhKTclJ1nNPywIxanaDU4vzSomSwEIxdqxNQWZKRn6dvrGeuZ2igmFWcmalbVJpXkpmbqhcEoQFGzPOFcAAAAA=="
+      },
+      "Metadata": {
+        "aws:cdk:path": "appsync-workshop-dynamodb/CDKMetadata/Default"
+      }
+    }
+  },
+  "Parameters": {
+    "BootstrapVersion": {
+      "Type": "AWS::SSM::Parameter::Value<String>",
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+    }
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                  ],
+                  {
+                    "Ref": "BootstrapVersion"
+                  }
+                ]
+              }
+            ]
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+        }
+      ]
+    }
+  }
+}

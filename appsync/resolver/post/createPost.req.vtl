@@ -1,0 +1,9 @@
+#set($id=$utils.autoId())
+#set($now=$util.time.nowISO8601())
+{
+    "version": "2018-05-29",
+    "statements": [
+        "INSERT INTO db.post VALUES ('$id', '$ctx.args.input.title', '$ctx.args.input.content', '$now', 'system')",
+        "SELECT * FROM db.post WHERE id = '$id'"
+    ]
+}

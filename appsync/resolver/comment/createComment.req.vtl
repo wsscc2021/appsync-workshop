@@ -1,0 +1,13 @@
+{
+    "version" : "2017-02-28",
+    "operation" : "PutItem",
+    "key" : {
+        "postId" : $util.dynamodb.toDynamoDBJson($context.arguments.input.postId),
+        "commentId" : $util.dynamodb.toDynamoDBJson($utils.autoId())
+    },
+    "attributeValues" : {
+        "author": $util.dynamodb.toDynamoDBJson("anonymous"),
+        "comment" : $util.dynamodb.toDynamoDBJson($context.arguments.input.comment),
+        "createdAt" : $util.dynamodb.toDynamoDBJson($util.time.nowISO8601())
+    }
+}

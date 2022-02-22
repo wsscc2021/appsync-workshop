@@ -1,0 +1,41 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type post {
+    id: ID!
+    title: String!
+    content: String
+    author: String
+    createdAt: AWSDateTime
+}
+
+type comment {
+    postId: String!
+    commentId: ID!
+    comment: String
+    author: String
+    createdAt: AWSDateTime
+}
+
+type Query {
+    listPost: [ post ]
+    getPost(id: ID!): post
+    listComment(postId: String!): [ comment ]
+}
+
+type Mutation {
+    createPost(input: createPostInput!): post
+    createComment(input: createCommentInput!): comment
+}
+
+input createCommentInput {
+    postId: String!
+    comment: String!
+}
+
+input createPostInput {
+    title: String!
+    content: String
+}

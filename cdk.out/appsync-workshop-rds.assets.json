@@ -1,0 +1,20 @@
+{
+  "version": "16.0.0",
+  "files": {
+    "e9650c2e2650774fb6b3ddbeba2265e9ddc061bb9eebcfd3682a6504cd56ba44": {
+      "source": {
+        "path": "appsync-workshop-rds.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "242593025403-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-242593025403-us-east-1",
+          "objectKey": "e9650c2e2650774fb6b3ddbeba2265e9ddc061bb9eebcfd3682a6504cd56ba44.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::242593025403:role/cdk-hnb659fds-file-publishing-role-242593025403-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
