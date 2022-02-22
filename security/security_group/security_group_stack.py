@@ -16,23 +16,6 @@ class SecurityGroupStack(Stack):
             name = "aurora",
             description = "",
             allow_all_outbound = False)
-        '''
-            Security Group Rules
-            1. Ingress
-            1-1. TCP, Chained Security Group
-            1-2. All Traffic, IPv4 CIDR
-            2. Egress
-            2-1. TCP, Chained Security Group
-            2-2. All Traffic, IPv4 CIDR for Specific address
-        '''
-        self.security_group['aurora'].add_ingress_rule(
-            peer = aws_ec2.Peer.ipv4('0.0.0.0/0'),
-            connection = aws_ec2.Port(
-                protocol=aws_ec2.Protocol.TCP,
-                string_representation="1", # Unique value
-                from_port=3306,
-                to_port=3306),
-            description = "")
             
     '''
         This function create security group, It also tagging for operate efficient.
