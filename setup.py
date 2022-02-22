@@ -19,7 +19,7 @@ setuptools.setup(
     packages=setuptools.find_packages(where="."),
 
     install_requires=[
-        "aws-cdk-lib==2.12.0",
+        "aws-cdk-lib==2.13.0",
         "aws-cdk-aws-appsync-alpha",
         "constructs>=10.0.0"
     ],
